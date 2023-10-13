@@ -1,15 +1,13 @@
-import datetime
 import pandas as pd
 import streamlit as st
 from datetime import timedelta
 import numpy as np
 import plotly.express as px
-from dateutil.relativedelta import relativedelta
 
 
 df = pd.read_csv('supermarket_sales.csv', encoding='unicode_escape')
 
-# Inclusão de campos necessários
+# Inclusão de campos necessários ao dataframe
 df['formatted_date'] = pd.to_datetime(df['date'])
 df['total_amount'] = df['unit_cost'] * df['quantity']
 df['week_number_month_year'] = pd.to_datetime(df['date']).dt.strftime('%V | %m/%Y')
